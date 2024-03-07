@@ -58,3 +58,5 @@ const SearchDish = () => {
 };
 
 export default SearchDish;
+
+//  pass state variable "meals" to child as prop
