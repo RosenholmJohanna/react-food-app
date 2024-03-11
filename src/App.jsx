@@ -5,17 +5,19 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css'
 import SearchDish from './Components/searchDish';
 import DisplayFood from './Components/foodDetails';
+import Header from './Components/header';
 
 function App() {
   return (
       <BrowserRouter>
+        <Header />
           <Routes>
             <Route path='/' element={<SearchDish />}></Route>
             <Route path='meal-details/:idMeal' element={<DisplayFood />} /> 
         </Routes>  
       </BrowserRouter>
   );
-  }
+}
   
 
 export default App

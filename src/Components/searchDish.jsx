@@ -1,6 +1,7 @@
 import React, { useEffect, useState, } from 'react'
-import FoodList from './foodList';
+import FoodList, { StyledListContainer } from './foodList';
 import styled from 'styled-components';
+// import { StyledListContainer } from './foodList';
 
 
 const SearchDish = () => {
@@ -40,20 +41,23 @@ const SearchDish = () => {
   };
 
   return (
-    <div>
+    <StyledListContainer>
+    <StyledSearchContainer>
       <label>
-        Search by meal:
-        <input
-          type="text"
-          value={searchMeal}
-          onChange={(e) => setSearchMeal(e.target.value)} />
-      </label>
+        Search dish
+      </label>  
+      <input
+        type="text"
+        value={searchMeal}
+        onChange={(e) => setSearchMeal(e.target.value)}
+      />
       <button onClick={handleSearch}>Search</button>
 
       {error && <p>{error}</p>}
 
       <FoodList meals={meals} />
-    </div>
+    </StyledSearchContainer>
+    </StyledListContainer>
   );
 };
 
@@ -61,3 +65,16 @@ export default SearchDish;
 
 //  pass state variable "meals" to child as prop
 
+
+
+const StyledSearchContainer = styled.div `
+padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+  background-color: #4E070C;
+  color: black;
+  /* margin: 0; */
+`
