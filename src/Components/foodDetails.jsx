@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import FoodList from "./foodList";
+import { StyledListContainer } from "./foodList";
 
 const DisplayFood = () => {
   const { idMeal } = useParams();
@@ -40,7 +42,7 @@ const DisplayFood = () => {
   }, [idMeal]);
 
   return (
-    <div>
+    <StyledListContainer>
       <h2>Meal Details</h2>
       {error ? (
         <p>{error}</p>
@@ -53,16 +55,16 @@ const DisplayFood = () => {
 
       <h2>Ingredients:</h2>
       <ul>
-        {Object.entries(mealDetails).map(([key, value]) => {
-          if (key.startsWith("strIngredient") && value) {
-            
+        {Object.entries(mealDetails).map(([key, ingredientValue]) => {
+          if (key.startsWith("strIngredient") && ingredientValue) {
+
             const ingredientNumber = key.slice(13);
             const measureKey = `strMeasure${ingredientNumber}`;
             const measureValue = mealDetails[measureKey];
 
             return (
               <li key={key}>
-                {value} {measureValue}
+                {measureValue} {ingredientValue} 
               </li>
             );
           }
@@ -70,7 +72,8 @@ const DisplayFood = () => {
       </ul>
       <h2>Instructions:</h2>
       <p>{mealDetails.strInstructions}</p>
-    </div>
+    </StyledListContainer>
+    
   );
 };
 

@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 
 const FoodList = ({ meals }) => {
   return (
-    <ul className="meal-list" >
+    <StyledListContainer>
+    <StyledList >
       {meals.map((meal) => (
-        <li key={meal.idMeal}>
+        <StyledListItem key={meal.idMeal}>
           <Link to={`/meal-details/${meal.idMeal}`}>
           <div className="meal-card">
               <div>
@@ -16,10 +17,41 @@ const FoodList = ({ meals }) => {
               </div>
           </div>
           </Link>
-        </li>
+        </StyledListItem>
       ))}
-    </ul>
+    </StyledList>
+  </StyledListContainer>
   );
 };
 
 export default FoodList;
+
+
+
+
+export const StyledListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+
+img{
+  max-width: 90%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+`
+
+const StyledListItem = styled.li `
+background-color: aliceblue;
+margin: 10px;
+`
+
+const StyledList = styled.ul `
+ list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`
