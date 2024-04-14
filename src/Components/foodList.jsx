@@ -48,7 +48,7 @@ img{
 `
 
 const StyledListItem = styled.li `
-margin: 10px;
+
 `
 
 const StyledList = styled.ul `
@@ -61,9 +61,9 @@ const StyledList = styled.ul `
 
 const Tag = styled.div `
 font-size: 0.7em;
-background-color: #FF670E;
+background-color: #bd3216;
 width: 20%;
 margin: 1%;
-border-radius: 5px 5px 5px 5px;
-
+border-radius: 3px 3px 3px 3px;
+color: whitesmoke;
 `
