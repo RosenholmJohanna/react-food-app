@@ -51,8 +51,8 @@ const MealDetails = () => {
           <img src={mealDetails.strMealThumb} alt={mealDetails.strMeal} />
         </>
       )}
-      <RateMeal />
-      <h2>Ingredients:</h2>
+      <RateMeal dishId={idMeal} />
+      <h2>Ingredients & measure:</h2>
       <ul>
         {Object.entries(mealDetails).map(([key, ingredientValue]) => {
           if (key.startsWith("strIngredient") && ingredientValue) {

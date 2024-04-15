@@ -11,7 +11,8 @@ const SearchMeal = () => {
   const handleSearch = async () => {
     try {
       const response = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchMeal}`
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchMeal}`,
+        console.log("fetch")
       );
       if (response.ok) {
         const data = await response.json();
@@ -63,7 +64,7 @@ const StyledSearchContainer = styled.div`
   position: absolute;
   top: 50px;
   background-color: #4e070c;
-  color: black;
+  color: white;
 `;
 
 const ErrorMessage = styled.div`
