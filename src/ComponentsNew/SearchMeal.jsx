@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-//import FoodList, { StyledListContainer } from "./FoodList";
-import MealDetails from "./MealDetails";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import FoodList from "./FoodList";
+import { StyledListContainer } from "./FoodList";
 
-const SearchDish = () => {
+const SearchMeal = () => {
   const [searchMeal, setSearchMeal] = useState("");
   const [meals, setMeals] = useState([]);
   const [error, setError] = useState(null);
@@ -26,11 +26,11 @@ const SearchDish = () => {
         }
       } else {
         setMeals([]);
-        setError("error fetching data.");
+        setError("error fetching data");
       }
     } catch (err) {
       setMeals([]);
-      setError("error fetching data at catch.");
+      setError("error fetch dat at catch.");
     }
   };
 
@@ -44,14 +44,16 @@ const SearchDish = () => {
           onChange={(e) => setSearchMeal(e.target.value)}
         />
         <button onClick={handleSearch}>Search</button>
+
         <ErrorMessage>{error && <p>{error}</p>}</ErrorMessage>
-        <MealDetails meals={meals} />
+
+        <FoodList meals={meals} />
       </StyledSearchContainer>
     </StyledListContainer>
   );
 };
 
-export default SearchDish;
+export default SearchMeal;
 
 const StyledSearchContainer = styled.div`
   padding-top: 5%;
@@ -61,7 +63,7 @@ const StyledSearchContainer = styled.div`
   position: absolute;
   top: 50px;
   background-color: #4e070c;
-  color: white;
+  color: black;
 `;
 
 const ErrorMessage = styled.div`
